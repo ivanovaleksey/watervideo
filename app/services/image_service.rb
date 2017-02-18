@@ -1,11 +1,14 @@
 class ImageService
   def initialize(args)
-    @width  = args[:width]
+    @args   = args
     @height = args[:height]
+    @width  = args[:width]
     @text   = args[:text]
   end
 
   def call
+    Rails.logger.debug("ImageService#call: #{@args}")
+
     image = create_image
     image.filename
   end
@@ -30,7 +33,7 @@ class ImageService
     draw.text(0, 0, @text)
     draw.draw(canvas)
 
-    tmp_file = Tempfile.new(['image', '.png']).path
+    tmp_file = Tempfile.new(%w(image .png), Rails.root.join('tmp')).path
     canvas.write(tmp_file)
   end
 end
