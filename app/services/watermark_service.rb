@@ -8,6 +8,7 @@ class WatermarkService
 
     tmp_file = generate_image
     apply_watermark(tmp_file)
+    finish_processing
   end
 
   private
@@ -36,6 +37,10 @@ class WatermarkService
   ensure
     Rails.logger.debug("WatermarkService#apply_watermark: Unlink #{image}")
     File.unlink(image)
+  end
+
+  def finish_processing
+    @video.complete
   end
 
   def file_path
