@@ -12,8 +12,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    service = Services::Video.new(create_params)
-    if service.create
+    service = Services::Video::Create.new(create_params)
+    if service.call
       flash[:notice] = I18n.t('videos.create.notice')
       redirect_to action: :index
     else
@@ -26,9 +26,17 @@ class VideosController < ApplicationController
   def edit; end
 
   def update
-    # TODO: regenerate watermark
-    @video.update(update_params)
-    redirect_to action: :index
+    service = Services::Video::Update.new(update_params, @video)
+    if service.call
+      flash[:notice] = I18n.t('videos.update.notice')
+      redirect_to action: :index
+    else
+      # TODO: do not raise
+      @video = service.video
+      flash[:error] = @video.errors.full_messages
+      render action: :edit
+      # raise
+    end
   end
 
   private

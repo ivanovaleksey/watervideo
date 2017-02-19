@@ -9,3 +9,5 @@ en:
       choose: 'Choose a file'
     create:
       notice: 'Video has been successfully uploaded'
+    update:
+      notice: 'Video has been successfully updated'
