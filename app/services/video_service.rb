@@ -8,6 +8,7 @@ class VideoService
 
   def create
     if @video.save
+      spawn_thumbnail_worker
       spawn_watermark_worker
       true
     else
@@ -19,10 +20,16 @@ class VideoService
   private
 
   def movie_attributes
+    movie = @video.movie
+    return {} unless movie
     {
-      duration: @video.movie.duration,
-      size:     @video.movie.size
+      duration: movie.duration,
+      size:     movie.size
     }
+  end
+
+  def spawn_thumbnail_worker
+    ThumbnailWorker.perform_async(@video.id)
   end
 
   def spawn_watermark_worker

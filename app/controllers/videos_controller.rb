@@ -12,10 +12,15 @@ class VideosController < ApplicationController
   end
 
   def create
-    # TODO: errors handling
     service = VideoService.new(create_params)
-    service.create
-    redirect_to action: :index
+    if service.create
+      flash[:notice] = I18n.t('videos.create.notice')
+      redirect_to action: :index
+    else
+      @video = service.video
+      flash[:error] = @video.errors.full_messages
+      render action: :new
+    end
   end
 
   def edit; end
