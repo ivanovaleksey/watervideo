@@ -4,6 +4,8 @@ en:
       title: 'Videos'
       add: 'Add video'
       status: 'The video is %{state}'
+      prev: 'Previous'
+      next: 'Next'
     show:
     form:
       choose: 'Choose a file'
