@@ -4,7 +4,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : 'VideoStore'
+    %title= content_for?(:title) ? yield(:title) : 'WaterVideo'
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
@@ -23,7 +23,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        = link_to 'VideoStore', root_path, class: 'navbar-brand'
+        = link_to 'WaterVideo', root_path, class: 'navbar-brand'
 
     .container
       .row
