@@ -1,0 +1,10 @@
+.page-header
+  %h1.clearfix
+    .pull-left= t('helpers.titles.edit', model: 'video')
+    .pull-right
+      = link_to videos_path, class: 'btn btn-default' do
+        = t('helpers.links.cancel')
+        = glyph 'remove-circle'
+
+.page-content
+  = render 'videos/form'
