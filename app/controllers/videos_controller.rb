@@ -12,7 +12,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    service = VideoService.new(create_params)
+    service = Services::Video.new(create_params)
     if service.create
       flash[:notice] = I18n.t('videos.create.notice')
       redirect_to action: :index

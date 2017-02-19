@@ -6,7 +6,7 @@ class WatermarkWorker
     Rails.logger.debug("WatermarkWorker#perform: #{video_id}")
 
     video = Video.find(video_id)
-    service = WatermarkService.new(video)
+    service = Services::Watermark.new(video)
     service.call
   end
 end
