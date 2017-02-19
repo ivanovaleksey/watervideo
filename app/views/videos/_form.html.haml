@@ -14,7 +14,7 @@
               .col-xs-12
                 %label.btn.btn-default.btn-block
                   = t('.choose')
-                  = f.file_field :file, class: 'hidden'
+                  = f.file_field :file, class: 'hidden', accept: 'video/*'
 
   .text-center
     = f.submit class: 'btn-success btn-lg'
