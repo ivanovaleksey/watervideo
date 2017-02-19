@@ -37,7 +37,7 @@ module Services
       end
     ensure
       Rails.logger.debug("Watermark#apply_watermark: Unlink #{image}")
-      File.unlink(image)
+      File.unlink(image) rescue Errno::ENOENT
     end
 
     def finish_processing

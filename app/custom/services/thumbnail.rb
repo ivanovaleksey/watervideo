@@ -35,7 +35,7 @@ module Services
       end
     ensure
       Rails.logger.debug("Thumbnail#update_video: Unlink #{thumbnail}")
-      File.unlink(thumbnail)
+      File.unlink(thumbnail) rescue Errno::ENOENT
     end
   end
 end
