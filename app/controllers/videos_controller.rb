@@ -34,7 +34,7 @@ class VideosController < ApplicationController
   private
 
   def load_video
-    @video = Video.find(params[:id])
+    @video = Video.with_state(:processed).find(params[:id])
   end
 
   def create_params

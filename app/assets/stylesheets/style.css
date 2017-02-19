@@ -3,6 +3,10 @@ footer {
     bottom: 0;
 }
 
+.bottom_0 {
+    margin-bottom: 0;
+}
+
 .bottom_10 {
     margin-bottom: 10px;
 }

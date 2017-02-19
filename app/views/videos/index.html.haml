@@ -14,11 +14,14 @@
           %img{src: thumbnail_url(video)}
           .caption
             %h5= video.file.file.filename
-            %p
-              = link_to video_path(video), class: 'btn btn-default' do
-                = t('helpers.links.show')
-                = glyph 'play-circle'
+            - if video.processed?
+              %div
+                = link_to video_path(video), class: 'btn btn-default' do
+                  = t('helpers.links.show')
+                  = glyph 'play-circle'
 
-              = link_to edit_video_path(video), class: 'btn btn-default' do
-                = t('helpers.links.edit')
-                = glyph 'pencil'
+                = link_to edit_video_path(video), class: 'btn btn-default' do
+                  = t('helpers.links.edit')
+                  = glyph 'pencil'
+            - else
+              .alert.alert-warning.bottom_0= t('.status', state: video.state)

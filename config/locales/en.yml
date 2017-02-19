@@ -1,10 +1,11 @@
 en:
   videos:
     index:
-      title: Videos
-      add: Add video
+      title: 'Videos'
+      add: 'Add video'
+      status: 'The video is %{state}'
     show:
     new:
-      choose: Choose a file
+      choose: 'Choose a file'
     create:
-      notice: Video has been succefully uploaded
+      notice: 'Video has been successfully uploaded'

@@ -8,6 +8,7 @@ class VideoService
 
   def create
     if @video.save
+      start_processing
       spawn_thumbnail_worker
       spawn_watermark_worker
       true
@@ -26,6 +27,10 @@ class VideoService
       duration: movie.duration,
       size:     movie.size
     }
+  end
+
+  def start_processing
+    @video.process
   end
 
   def spawn_thumbnail_worker
