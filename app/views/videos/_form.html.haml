@@ -6,8 +6,7 @@
         .panel-body
           .row.bottom_10
             .col-xs-12
-              = succeed ':' do
-                = label(:video, :watermark_text)
+              = label(:video, :watermark_text)
               = f.text_field :watermark_text, class: 'form-control'
 
           - if @video.new_record?

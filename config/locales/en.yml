@@ -5,4 +5,6 @@ en:
       add: Add video
     show:
     new:
-      choose: Choose file
+      choose: Choose a file
+    create:
+      notice: Video has been succefully uploaded
