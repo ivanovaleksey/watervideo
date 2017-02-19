@@ -5,7 +5,7 @@ en:
       add: 'Add video'
       status: 'The video is %{state}'
     show:
-    new:
+    form:
       choose: 'Choose a file'
     create:
       notice: 'Video has been successfully uploaded'
