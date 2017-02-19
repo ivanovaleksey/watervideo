@@ -19,6 +19,6 @@ class Video < ApplicationRecord
   def movie
     path = file.current_path
     return nil unless path
-    @movie ||= FFMPEG::Movie.new(path)
+    FFMPEG::Movie.new(path)
   end
 end

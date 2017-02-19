@@ -13,9 +13,10 @@ class ThumbnailService
   private
 
   def capture_snapshot
-    time = @video.movie.duration / 2
+    movie = @video.movie
+    time = movie.duration / 2
     tmp_file = Tempfile.new(%w(thumbnail .jpg), Rails.root.join('tmp')).path
-    @video.movie.screenshot(tmp_file, seek_time: time).path
+    movie.screenshot(tmp_file, seek_time: time).path
   end
 
   def update_video(thumbnail)
