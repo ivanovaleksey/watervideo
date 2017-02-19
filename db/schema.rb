@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218143118) do
+ActiveRecord::Schema.define(version: 20170219091501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "videos", force: :cascade do |t|
-    t.string  "file"
-    t.string  "watermark_text"
-    t.float   "duration"
-    t.integer "size"
+    t.string   "file"
+    t.string   "watermark_text"
+    t.float    "duration"
+    t.integer  "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
