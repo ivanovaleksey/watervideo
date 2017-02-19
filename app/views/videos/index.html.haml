@@ -14,6 +14,9 @@
           %img{src: thumbnail_url(video)}
           .caption
             %h5= video.file.file.filename
+            .bottom_10.clearfix
+              .pull-left= duration(video)
+              .pull-right= number_to_human_size(video.size)
             - if video.processed?
               %div
                 = link_to video_path(video), class: 'btn btn-default' do
