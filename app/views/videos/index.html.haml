@@ -28,3 +28,10 @@
                   = glyph 'pencil'
             - else
               .alert.alert-warning.bottom_0{style: 'padding:6px'}= t('.status', state: video.state)
+
+  .row.text-center
+    %nav
+      %ul.pager
+        %li
+          = link_to_prev_page @videos, t('.prev')
+          = link_to_next_page @videos, t('.next')

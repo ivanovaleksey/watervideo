@@ -4,7 +4,8 @@ class VideosController < ApplicationController
   def index
     @videos = Video.order(created_at: :desc)
                    .page(params[:page])
-                   .per(params[:per])
+                   .per(2)
+                   .without_count
   end
 
   def new
