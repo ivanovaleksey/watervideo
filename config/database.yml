@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: video-store_development
+  database: watervideo_development
 test:
   <<: *default
-  database: video-store_test
+  database: watervideo_test
 production:
   <<: *default
-  database: video-store_production
-  username: video-store
-  password: <%= ENV['VIDEO-STORE_DATABASE_PASSWORD'] %>
+  database: watervideo_production
+  username: watervideo
+  password: <%= ENV['WATERVIDEO_DATABASE_PASSWORD'] %>
