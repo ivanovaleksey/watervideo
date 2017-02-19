@@ -1,0 +1,20 @@
+= form_for @video do |f|
+  .row
+    .col-xs-12.col-md-8.col-md-offset-2
+      .panel.panel-default
+        .panel-heading
+        .panel-body
+          .row.bottom_10
+            .col-xs-12
+              = label(:video, :watermark_text)
+              = f.text_field :watermark_text, class: 'form-control'
+
+          - if @video.new_record?
+            .row
+              .col-xs-12
+                %label.btn.btn-default.btn-block
+                  = t('.choose')
+                  = f.file_field :file, class: 'hidden', accept: 'video/*'
+
+  .text-center
+    = f.submit class: 'btn-success btn-lg'
