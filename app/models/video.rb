@@ -8,7 +8,7 @@ class Video < ApplicationRecord
 
   state_machine initial: :pending do
     event :process do
-      transition pending: :processing
+      transition [:pending, :processed] => :processing
     end
 
     event :complete do

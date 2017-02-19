@@ -6,7 +6,7 @@ class ThumbnailWorker
     Rails.logger.debug("ThumbnailWorker#perform: #{video_id}")
 
     video = Video.find(video_id)
-    service = ThumbnailService.new(video)
+    service = Services::Thumbnail.new(video)
     service.call
   end
 end
