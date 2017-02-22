@@ -1,8 +1,5 @@
 class VideosController < ApplicationController
-  include ActionController::Live
-
-  before_action :load_video, only: [:file_state, :thumbnail_state]
-  before_action :load_processed_video, only: [:show, :edit, :update]
+  before_action :load_video, only: [:show, :edit, :update]
 
   def index
     @videos = Video.order(created_at: :desc)
@@ -43,25 +40,9 @@ class VideosController < ApplicationController
     end
   end
 
-  def file_state
-    sse_action do |sse|
-      sse.write(@video.state)
-    end
-  end
-
-  def thumbnail_state
-    sse_action(retry: 1_000) do |sse|
-      sse.write(@video.thumbnail.url)
-    end
-  end
-
   private
 
   def load_video
-    @video = Video.find(params[:id])
-  end
-
-  def load_processed_video
     @video = Video.with_state(:processed).find(params[:id])
   end
 
@@ -71,13 +52,5 @@ class VideosController < ApplicationController
 
   def update_params
     params.require(:video).permit(:watermark_text)
-  end
-
-  def sse_action(options = {})
-    response.headers['Content-Type'] = 'text/event-stream'
-    sse = SSE.new(response.stream, options)
-    yield sse
-  ensure
-    sse.close
   end
 end

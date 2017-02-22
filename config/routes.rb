@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :videos, except: :destroy do
     member do
-      get :thumbnail_state
-      get :file_state
+      get :thumbnail_state, controller: 'progress'
+      get :file_state, controller: 'progress'
     end
   end
 end
