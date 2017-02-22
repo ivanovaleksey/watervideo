@@ -13,7 +13,7 @@
         .thumbnail
           %img{src: thumbnail_url(video)}
           .caption
-            %h5= video.file.file.filename
+            %h5= filename(video)
             .bottom_10.clearfix
               .pull-left= duration(video)
               .pull-right= number_to_human_size(video.size)
