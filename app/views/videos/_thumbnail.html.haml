@@ -1,0 +1,19 @@
+.thumbnail{'data-id': video.id, 'data-state': video.state }
+  %img{src: thumbnail_url(video)}
+  .caption
+    %h5= filename(video)
+    .bottom_10.clearfix
+      .pull-left= duration(video)
+      .pull-right= number_to_human_size(video.size)
+
+    .processed{class: video.processed? ? '' : 'collapse' }
+      = link_to video_path(video), class: 'btn btn-default' do
+        = t('helpers.links.show')
+        = glyph 'play-circle'
+
+      = link_to edit_video_path(video), class: 'btn btn-default' do
+        = t('helpers.links.edit')
+        = glyph 'pencil'
+
+    .pending{class: video.processed? ? 'collapse' : '' }
+      .alert.alert-warning.bottom_0{style: 'padding:6px'}= t('.status', state: video.state)
