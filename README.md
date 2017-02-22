@@ -21,9 +21,6 @@ The application will do the following things:
  2. Create image with the text.
  3. Add watermark to the video using the image from step 2.
  
-It can take some time depending on uploaded video size.  
-Once processing is done you can watch the video and download it.
-
-*NOTE:* At the time no notifications are implemented.  
-So to track processing progress you should just reload the page.  
-I consider integrating ActionCable in order to make the whole thing more practical.
+It can take some time depending on the uploaded video size.  
+The application uses SSE to keep track of processing progress.  
+So you can just sit and relax. Once processing is done you can watch the video and download it.

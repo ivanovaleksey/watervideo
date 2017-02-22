@@ -10,24 +10,7 @@
   .row
     - @videos.each do |video|
       .col-xs-12.col-sm-6.col-md-4
-        .thumbnail
-          %img{src: thumbnail_url(video)}
-          .caption
-            %h5= video.file.file.filename
-            .bottom_10.clearfix
-              .pull-left= duration(video)
-              .pull-right= number_to_human_size(video.size)
-            - if video.processed?
-              %div
-                = link_to video_path(video), class: 'btn btn-default' do
-                  = t('helpers.links.show')
-                  = glyph 'play-circle'
-
-                = link_to edit_video_path(video), class: 'btn btn-default' do
-                  = t('helpers.links.edit')
-                  = glyph 'pencil'
-            - else
-              .alert.alert-warning.bottom_0{style: 'padding:6px'}= t('.status', state: video.state)
+        = render 'videos/thumbnail', video: video
 
   .row.text-center
     %nav

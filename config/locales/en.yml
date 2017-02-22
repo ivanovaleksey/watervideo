@@ -3,10 +3,10 @@ en:
     index:
       title: 'Videos'
       add: 'Add video'
-      status: 'The video is %{state}'
       prev: 'Previous'
       next: 'Next'
-    show:
+    thumbnail:
+      status: 'The video is %{state}'
     form:
       choose: 'Choose a file'
     create:
